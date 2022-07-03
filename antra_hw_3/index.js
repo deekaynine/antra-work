@@ -468,3 +468,11 @@ function getFunctionName() {
   console.log((() => arguments.callee.name)());
 }
 getFunctionName();
+
+Array.prototype.myReduce = function (cb) {
+  let total = 0;
+  for (let i = 0; i < this.length; i++) {
+    cb((total = total.this[i]));
+  }
+  return total;
+};
