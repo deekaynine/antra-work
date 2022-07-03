@@ -472,7 +472,11 @@ getFunctionName();
 Array.prototype.myReduce = function (cb) {
   let total = 0;
   for (let i = 0; i < this.length; i++) {
-    cb((total = total.this[i]));
+    cb((total = total + this[i]));
   }
   return total;
 };
+
+let tester = [1, 2, 3, 4, 5, 6];
+let result = tester.myReduce((acc, item) => acc + item, 0);
+console.log(result);
